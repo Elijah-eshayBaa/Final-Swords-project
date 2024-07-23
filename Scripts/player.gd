@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const speed = 100
+const speed = 1000
 func _physics_process(delta):
 	player_movement(delta)
 
