@@ -419,5 +419,6 @@ script = ExtResource("1_k5bm1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_yuf0m")
 animation = &"front_attack"
