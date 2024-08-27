@@ -1,0 +1,140 @@
+[gd_scene load_steps=11 format=3 uid="uid://dhnkr204b2scj"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_fwpkl"]
+[ext_resource type="Texture2D" uid="uid://bv84b76hieeni" path="res://Screenshot pixel.jpg" id="1_o6jpo"]
+[ext_resource type="FontFile" uid="uid://b1rpworgl7x2p" path="res://StepalangeShort-p7GZd.otf" id="2_seo4w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v4k2c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jr0nr"]
+bg_color = Color(3.1285e-07, 0.299639, 0.418117, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eb7n0"]
+bg_color = Color(1.37173e-06, 0.232968, 0.306794, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mx4u5"]
+bg_color = Color(0, 0.556863, 0.713726, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b7ke6"]
+bg_color = Color(0, 0.556863, 0.713726, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r7fds"]
+bg_color = Color(4.62055e-06, 0.526898, 0.676079, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_size = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_eqlfq"]
+color = Color(1, 1, 1, 1)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fwpkl")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.29219, 0.29219, 0.29219, 1)
+layout_mode = 2
+anchor_left = 0.000868056
+anchor_top = -0.395062
+anchor_right = 1.01736
+anchor_bottom = 1.2716
+texture = ExtResource("1_o6jpo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -74.0
+offset_right = 100.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_fonts/font = ExtResource("2_seo4w")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v4k2c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jr0nr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eb7n0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mx4u5")
+text = "Play
+"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_fonts/font = ExtResource("2_seo4w")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v4k2c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jr0nr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eb7n0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_b7ke6")
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_fonts/font = ExtResource("2_seo4w")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v4k2c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jr0nr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eb7n0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_r7fds")
+text = "Quit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.289063
+anchor_top = 0.195988
+anchor_right = 0.712674
+anchor_bottom = 0.324074
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 27
+theme_override_fonts/font = ExtResource("2_seo4w")
+theme_override_font_sizes/font_size = 46
+theme_override_styles/normal = SubResource("StyleBoxLine_eqlfq")
+text = "AN 
+ADVENTURE"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_pressed"]

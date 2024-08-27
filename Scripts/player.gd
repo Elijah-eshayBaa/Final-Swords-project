@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const speed = 100
+const speed = 115
 func _physics_process(delta):
 	player_movement(delta)
 var current_dir = "none"
@@ -35,6 +35,8 @@ func player_movement(delta):
 	
 	move_and_slide()
 	
+	
+	
 func play_anim(movement):
 	var dir = current_dir
 	var anim = $AnimatedSprite2D
@@ -66,4 +68,3 @@ func play_anim(movement):
 			anim.play("back_walk")
 		elif movement == 0:
 			anim.play("back_idle")
-

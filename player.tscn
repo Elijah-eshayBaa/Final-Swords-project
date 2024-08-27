@@ -413,21 +413,21 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mcm0q"]
-radius = 6.05807
-height = 26.0767
+[sub_resource type="CircleShape2D" id="CircleShape2D_dauxu"]
+radius = 8.24621
 
 [node name="player" type="CharacterBody2D"]
 position = Vector2(541, 322)
+collision_layer = 3
 script = ExtResource("1_k5bm1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -30)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_yuf0m")
 animation = &"front_idle"
+offset = Vector2(-0.5, -15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 2)
+position = Vector2(0, 2)
 rotation = 1.49575
-shape = SubResource("CapsuleShape2D_mcm0q")
+shape = SubResource("CircleShape2D_dauxu")
