@@ -1,0 +1,112 @@
+[gd_scene load_steps=8 format=3 uid="uid://1qdu02x4r56n"]
+
+[ext_resource type="Texture2D" uid="uid://bv84b76hieeni" path="res://Screenshot pixel.jpg" id="1_chrfe"]
+[ext_resource type="Script" path="res://options.gd" id="1_rxx6s"]
+[ext_resource type="FontFile" uid="uid://b1rpworgl7x2p" path="res://StepalangeShort-p7GZd.otf" id="2_qbg1b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3l4ks"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3fdve"]
+bg_color = Color(3.1285e-07, 0.299639, 0.418117, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_em2n1"]
+bg_color = Color(1.37173e-06, 0.232968, 0.306794, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c6jfr"]
+bg_color = Color(4.62055e-06, 0.526898, 0.676079, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_size = 4
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rxx6s")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.29219, 0.29219, 0.29219, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.000868056
+anchor_top = -0.395062
+anchor_right = 1.01736
+anchor_bottom = 1.2716
+offset_left = -103.0
+offset_top = -28.9998
+offset_right = 5.00134
+offset_bottom = 96.0032
+texture = ExtResource("1_chrfe")
+
+[node name="Credits" type="Label" parent="."]
+offset_left = 21.0
+offset_top = 222.0
+offset_right = 446.0
+offset_bottom = 336.0
+theme_override_fonts/font = ExtResource("2_qbg1b")
+theme_override_font_sizes/font_size = 32
+text = "Made by, Kings High School Student"
+
+[node name="Credits2" type="Label" parent="."]
+offset_left = 19.0
+offset_top = 169.0
+offset_right = 444.0
+offset_bottom = 283.0
+theme_override_fonts/font = ExtResource("2_qbg1b")
+theme_override_font_sizes/font_size = 54
+text = "Credits:"
+
+[node name="Controls" type="Label" parent="."]
+offset_left = 17.0
+offset_top = 291.0
+offset_right = 442.0
+offset_bottom = 405.0
+theme_override_fonts/font = ExtResource("2_qbg1b")
+theme_override_font_sizes/font_size = 50
+text = "Controls:
+
+"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 19.0
+offset_top = 342.0
+offset_right = 444.0
+offset_bottom = 456.0
+theme_override_fonts/font = ExtResource("2_qbg1b")
+theme_override_font_sizes/font_size = 32
+text = "W,A,S,D = Walk Around
+Rright Click = Attack
+E = Pick Up
+Tab = Inventory
+ESC= Menu Bar"
+
+[node name="QuitButton" type="Button" parent="."]
+offset_left = 1045.0
+offset_top = 15.0
+offset_right = 1140.0
+offset_bottom = 60.0
+size_flags_vertical = 2
+theme_override_fonts/font = ExtResource("2_qbg1b")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3l4ks")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3fdve")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_em2n1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_c6jfr")
+text = "Exit"
+
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
