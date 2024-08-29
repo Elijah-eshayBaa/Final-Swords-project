@@ -6,9 +6,7 @@ var enemy_attack_cooldown = true
 var health = 100
 var player_alive = true
 var current_dir = "none"
-const speed = 115
-
-
+const speed = 110
 
 func _physics_process(delta):
 	player_movement(delta)
