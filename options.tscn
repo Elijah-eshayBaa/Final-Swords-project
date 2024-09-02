@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://1qdu02x4r56n"]
 
 [ext_resource type="Texture2D" uid="uid://bv84b76hieeni" path="res://Screenshot pixel.jpg" id="1_chrfe"]
-[ext_resource type="Script" path="res://options.gd" id="1_rxx6s"]
+[ext_resource type="Script" path="res://Scripts/options.gd" id="1_rxx6s"]
 [ext_resource type="FontFile" uid="uid://b1rpworgl7x2p" path="res://StepalangeShort-p7GZd.otf" id="2_qbg1b"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3l4ks"]

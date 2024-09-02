@@ -7,7 +7,7 @@ var health = 100
 var player_alive = true
 var current_dir = "none"
 const speed = 110
-
+var attack_ip = false
 func _physics_process(delta):
 	player_movement(delta)
 	enemy_attack()
@@ -58,28 +58,32 @@ func play_anim(movement):
 		if movement == 1:
 			anim.play("side_walk")
 		elif movement == 0:
-			anim.play("side_idle")
+			if attack_ip == false:
+				anim.play("side_idle")
 	
 	if dir == "left":
 		anim.flip_h = true
 		if movement == 1:
 			anim.play("side_walk")
 		elif movement == 0:
-			anim.play("side_idle")
+			if attack_ip == true:
+				anim.play("side_idle")
 	
 	if dir == "down":
 		anim.flip_h = false
 		if movement == 1:
 			anim.play("front_walk")
 		elif movement == 0:
-			anim.play("front_idle")
+			if attack_ip == false:
+				anim.play("front_idle")
 	
 	if dir == "up":
 		anim.flip_h = false
 		if movement == 1:
 			anim.play("back_walk")
 		elif movement == 0:
-			anim.play("back_idle")
+			if attack_ip == false:
+				anim.play("back_idle")
 func player():
 	pass
 
@@ -101,3 +105,10 @@ func enemy_attack():
 
 func _on_attack_cooldown_timeout() -> void:
 	enemy_attack_cooldown = true
+	
+func attack():
+	var dir = current_dir
+	
+	if Input.is_action_just_pressed("attack"):
+		gobal.player_current_attack = true
+		

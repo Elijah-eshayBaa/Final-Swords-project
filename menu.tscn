@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dhnkr204b2scj"]
 
-[ext_resource type="Script" path="res://menu.gd" id="1_fwpkl"]
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_fwpkl"]
 [ext_resource type="Texture2D" uid="uid://bv84b76hieeni" path="res://Screenshot pixel.jpg" id="1_o6jpo"]
 [ext_resource type="FontFile" uid="uid://b1rpworgl7x2p" path="res://StepalangeShort-p7GZd.otf" id="2_seo4w"]
 
