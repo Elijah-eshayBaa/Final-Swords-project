@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
-var health = 100
+var health = 180
 var player_alive = true
 var current_dir = "none"
 const speed = 110
@@ -11,6 +11,9 @@ var attack_ip = false
 func _physics_process(delta):
 	player_movement(delta)
 	enemy_attack()
+	attack()
+	
+	
 	if health <= 0:
 		player_alive = false #back to menu
 		health = 0
@@ -25,21 +28,25 @@ func player_movement(delta):
 		play_anim(1)
 		velocity.x = speed
 		velocity.y = 0
+
 	elif Input.is_action_pressed("left"):
 		current_dir = "left"
 		play_anim(1)
 		velocity.x = -speed
-		velocity.y = 0
+		velocity.y = 0 
+
 	elif Input.is_action_pressed("down"):
 		current_dir = "down"
 		play_anim(1)
 		velocity.y = speed
 		velocity.x = 0
+
 	elif Input.is_action_pressed("up"):
 		play_anim(1)
 		current_dir = "up"
 		velocity.y = -speed
 		velocity.x = 0
+
 	else:
 		play_anim(0)
 		velocity.x = 0
@@ -110,5 +117,29 @@ func attack():
 	var dir = current_dir
 	
 	if Input.is_action_just_pressed("attack"):
-		gobal.player_current_attack = true
+		global.player_current_attack = true
+		attack_ip = true
 		
+		if dir == "right":
+			$AnimatedSprite2D.flip_h = false
+			$AnimatedSprite2D.play("side_attack")
+			$deal_attack_timer.start()
+			
+		if dir == "left":
+			$AnimatedSprite2D.flip_h = true
+			$AnimatedSprite2D.play("side_attack")
+			$deal_attack_timer.start()
+			
+		if dir == "down":
+			$AnimatedSprite2D.play("front_attack")
+			$deal_attack_timer.start()
+			
+		if dir == "up":
+			$AnimatedSprite2D.play("back_attack")
+			$deal_attack_timer.start()
+
+
+func _on_deal_attack_timer_timeout() -> void:
+	$deal_attack_timer.stop()
+	global.player_current_attack = false
+	attack_ip = false
