@@ -1,0 +1,10 @@
+extends Control
+@onready var world = $"../../"
+
+
+func _on_resume_pressed():
+	world.pauseMenu()
+
+
+func _on_quit_pressed():
+	get.tree().quit()
