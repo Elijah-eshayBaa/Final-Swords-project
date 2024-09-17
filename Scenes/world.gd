@@ -14,5 +14,5 @@ func pauseMenu():
 	else:
 		pause_menu.show()
 		Engine.time_scale = 0
-		
+	
 	paused = !paused
