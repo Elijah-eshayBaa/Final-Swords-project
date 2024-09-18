@@ -1,7 +1,8 @@
-[gd_scene load_steps=57 format=3 uid="uid://c06r0er0a6qqm"]
+[gd_scene load_steps=58 format=3 uid="uid://c06r0er0a6qqm"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_k5bm1"]
 [ext_resource type="Texture2D" uid="uid://3a8w380ww8uw" path="res://Scenes/characters/player.png" id="2_iot6e"]
+[ext_resource type="PackedScene" uid="uid://cqcg8mw3fs4ap" path="res://pause_menu.tscn" id="3_ern2v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r05fs"]
 atlas = ExtResource("2_iot6e")
@@ -421,6 +422,7 @@ radius = 28.0
 
 [node name="player" type="CharacterBody2D"]
 position = Vector2(541, 322)
+scale = Vector2(0.25, 0.25)
 collision_layer = 3
 script = ExtResource("1_k5bm1")
 
@@ -446,6 +448,17 @@ wait_time = 0.755
 
 [node name="deal_attack_timer" type="Timer" parent="."]
 wait_time = 0.439
+
+[node name="PauseMenu" parent="." instance=ExtResource("3_ern2v")]
+visible = false
+top_level = true
+light_mask = 15
+visibility_layer = 1023
+y_sort_enabled = true
+offset_left = 72.0
+offset_top = -81.0
+offset_right = 144.0
+offset_bottom = -15.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 ignore_rotation = false
