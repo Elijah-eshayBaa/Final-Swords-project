@@ -1,6 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqcg8mw3fs4ap"]
+[gd_scene load_steps=7 format=3 uid="uid://cqcg8mw3fs4ap"]
 
 [ext_resource type="Script" path="res://pause_menu.gd" id="1_xk8ty"]
+[ext_resource type="FontFile" uid="uid://b1rpworgl7x2p" path="res://StepalangeShort-p7GZd.otf" id="2_miuye"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mkr2s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f1tt0"]
+bg_color = Color(0, 0.388235, 0.831373, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fnamo"]
+bg_color = Color(0, 0.242947, 0.540156, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0k015"]
+bg_color = Color(0, 0.556863, 0.713726, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.805209, 0.800837, 0.779575, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 2
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -23,15 +63,15 @@ offset_bottom = 40.0
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "RESUME
-"
-
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_miuye")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mkr2s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f1tt0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fnamo")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0k015")
 text = "QUIT
 "
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

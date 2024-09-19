@@ -453,10 +453,10 @@ ignore_rotation = false
 zoom = Vector2(4, 4)
 
 [node name="PauseMenu" parent="." instance=ExtResource("3_eycm4")]
-offset_left = 72.0
-offset_top = -81.0
-offset_right = 143.0
-offset_bottom = -33.0
+offset_left = 159.0
+offset_top = -117.0
+offset_right = 230.0
+offset_bottom = -69.0
 
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
