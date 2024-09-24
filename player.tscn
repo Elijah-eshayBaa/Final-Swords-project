@@ -451,13 +451,13 @@ wait_time = 0.439
 
 [node name="Camera2D" type="Camera2D" parent="."]
 ignore_rotation = false
-zoom = Vector2(4, 4)
+zoom = Vector2(4.2, 4.2)
 
 [node name="PauseMenu" parent="." instance=ExtResource("3_eycm4")]
-offset_left = 159.0
-offset_top = -117.0
-offset_right = 230.0
-offset_bottom = -69.0
+offset_left = 87.0
+offset_top = -75.0
+offset_right = 158.0
+offset_bottom = -27.0
 
 [node name="swordsound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_01brt")
