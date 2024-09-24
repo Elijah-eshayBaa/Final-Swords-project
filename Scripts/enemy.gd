@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var slime_sound = $slimesound
 var speed = 85
 var player_chase = false
 var player = null 
@@ -21,12 +22,14 @@ func _physics_process(delta):
 			$AnimatedSprite2D.flip_h = false 
 	else:
 		$AnimatedSprite2D.play("idle")
+		slime_sound.play()
 
 
 
 func _on_detection_area_body_entered(body):
 	player = body
 	player_chase = true 
+	slime_sound.play()
 
 
 func _on_detection_area_body_exited(body):
@@ -43,6 +46,7 @@ func enemy():
 func _on_enemy_hitbox_body_entered(body):
 	if body.has_method("player"):
 		player_inattack_zone = true
+		slime_sound.play()
 
 func _on_enemy_hitbox_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
@@ -61,3 +65,4 @@ func deal_with_damage():
 
 func _on_take_damage_cooldown_timeout() -> void:
 	can_take_damage = true
+	

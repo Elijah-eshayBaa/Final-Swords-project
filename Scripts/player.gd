@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-
+@onready var sword_sound = $swordsound
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
 var health = 180
@@ -73,7 +73,7 @@ func play_anim(movement):
 		if movement == 1:
 			anim.play("side_walk")
 		elif movement == 0:
-			if attack_ip == true:
+			if attack_ip == false:
 				anim.play("side_idle")
 	
 	if dir == "down":
@@ -124,19 +124,23 @@ func attack():
 			$AnimatedSprite2D.flip_h = false
 			$AnimatedSprite2D.play("side_attack")
 			$deal_attack_timer.start()
+			sword_sound.play()
 			
 		if dir == "left":
 			$AnimatedSprite2D.flip_h = true
 			$AnimatedSprite2D.play("side_attack")
 			$deal_attack_timer.start()
+			sword_sound.play()
 			
 		if dir == "down":
 			$AnimatedSprite2D.play("front_attack")
 			$deal_attack_timer.start()
+			sword_sound.play()
 			
 		if dir == "up":
 			$AnimatedSprite2D.play("back_attack")
 			$deal_attack_timer.start()
+			sword_sound.play()
 
 
 func _on_deal_attack_timer_timeout() -> void:
