@@ -150,17 +150,10 @@ position = Vector2(43, 34.5)
 position = Vector2(269, 40.5)
 
 [node name="enemy3" parent="." instance=ExtResource("5_bqrvy")]
-position = Vector2(187, 72.5)
+position = Vector2(236.5, 122)
 
 [node name="enemy4" parent="." instance=ExtResource("5_bqrvy")]
 position = Vector2(90.5, 24)
 
 [node name="enemy5" parent="." instance=ExtResource("5_bqrvy")]
 position = Vector2(126.5, 122.5)
-
-[node name="collisions" type="StaticBody2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collisions"]
-position = Vector2(10.3745, 13.5)
-scale = Vector2(1.93729, 1.89486)
-polygon = PackedVector2Array(12, 9.5, 233.5, 9, 233, 41.5, 243.5, 42, 243.5, -0.5, 288.5, -1.5, 288.5, 7, 260, 8, 257, 25, 266.5, 26.5, 267.5, 14, 277, 13.5, 277, 151.5, 12, 153, 10.5, 13.5, -5.61324, 13.1936, -4.58087, 163.336, 292, 164, 291.709, -7.12453, -4.32278, -6.59679)

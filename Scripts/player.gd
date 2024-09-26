@@ -1,26 +1,33 @@
 extends CharacterBody2D
 
+#All variables in the code.
+@onready var game_music = $gamemusic
 @onready var sword_sound = $swordsound
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
-var health = 180
+var health = 160
 var player_alive = true
 var current_dir = "none"
 const speed = 110
 var attack_ip = false
+
+#Physical player functions
 func _physics_process(delta):
 	player_movement(delta)
 	enemy_attack()
 	attack()
-	
-	
+
+
+#This sends player back to menu if player health is equal to 0 or less than 0
 	if health <= 0:
-		player_alive = false #back to menu
+		player_alive = false #back to menu if player dies
 		health = 0
 		print ("player died")
 		self.queue_free()
+		get_tree().change_scene_to_file("res://menu.tscn")
 
 
+#This chunk of code is dependant on what key you're pressing "W,A,S,D" is the main movement of this
 func player_movement(delta):
 	
 	if Input.is_action_pressed("right"):
@@ -55,7 +62,7 @@ func player_movement(delta):
 	move_and_slide()
 	
 	
-	
+#This function allows the animation to run still dependant on which key you press "W,A,S,D"
 func play_anim(movement):
 	var dir = current_dir
 	var anim = $AnimatedSprite2D
@@ -108,8 +115,12 @@ func enemy_attack():
 		health = health - 20
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
-		print(health)
+		print("player health = " , health)
 
+
+
+
+#This is where the attack animation is 
 func _on_attack_cooldown_timeout() -> void:
 	enemy_attack_cooldown = true
 	
@@ -140,7 +151,9 @@ func attack():
 		if dir == "up":
 			$AnimatedSprite2D.play("back_attack")
 			$deal_attack_timer.start()
-			sword_sound.play()
+			sword_sound.play() #In this line of code you should add a timer -
+#cooldown as I am able to -
+#click multiple times and the sound replays without finishing the audio file.
 
 
 func _on_deal_attack_timer_timeout() -> void:
