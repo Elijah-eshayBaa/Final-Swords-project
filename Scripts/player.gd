@@ -13,18 +13,11 @@ const speed = 110
 var attack_ip = false
 
 
-func _ready() -> void:
-	change_health(10)
-
-func change_health(damage: int):
-	var tween = create_tween()
-	tween.tween_property(self, "value", value - damage)
-
 
 
 func _ready():
 	health_bar.value = health
-	
+
 func _process(delta):
 	health_bar.value = health
 

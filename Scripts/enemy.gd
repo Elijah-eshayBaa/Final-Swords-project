@@ -7,7 +7,7 @@ var player = null
 var health = 60
 var can_take_damage = true
 var player_inattack_zone = false
-
+var sound_timer = true
 @onready var health_bar = $healthbar
 
 func _ready():
@@ -27,21 +27,22 @@ func _physics_process(delta):
 
 
 		$AnimatedSprite2D.play("walk")
-		slime_sound.play()
+
 		if(player.position.x - position.x) < 0:
 			$AnimatedSprite2D.flip_h = true
 		else:
 			$AnimatedSprite2D.flip_h = false 
 	else:
 		$AnimatedSprite2D.play("idle")
-		slime_sound.play()
+		
+
 
 
 
 func _on_detection_area_body_entered(body):
 	player = body
 	player_chase = true 
-	slime_sound.play()
+
 
 
 func _on_detection_area_body_exited(body):
@@ -57,8 +58,9 @@ func enemy():
 
 func _on_enemy_hitbox_body_entered(body): #This chunk tells us when the player has entered the enititys zone allowing entity to attack
 	if body.has_method("player"):
+		
 		player_inattack_zone = true
-		slime_sound.play()
+		
 
 func _on_enemy_hitbox_body_exited(body: Node2D) -> void: #When player outside of entitys zone it stops going after them
 	if body.has_method("player"):
