@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 #All variables in the code.
+@onready var health_bar = $healthbar
 @onready var game_music = $gamemusic
 @onready var sword_sound = $swordsound
 var enemy_inattack_range = false
@@ -10,6 +11,25 @@ var player_alive = true
 var current_dir = "none"
 const speed = 110
 var attack_ip = false
+
+
+func _ready() -> void:
+	change_health(10)
+
+func change_health(damage: int):
+	var tween = create_tween()
+	tween.tween_property(self, "value", value - damage)
+
+
+
+func _ready():
+	health_bar.value = health
+	
+func _process(delta):
+	health_bar.value = health
+
+
+
 
 #Physical player functions
 func _physics_process(delta):
@@ -22,6 +42,7 @@ func _physics_process(delta):
 	if health <= 0:
 		player_alive = false #back to menu if player dies
 		health = 0
+		health_bar.value = health
 		print ("player died")
 		self.queue_free()
 		get_tree().change_scene_to_file("res://menu.tscn")

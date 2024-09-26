@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://c06r0er0a6qqm"]
+[gd_scene load_steps=62 format=3 uid="uid://c06r0er0a6qqm"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_k5bm1"]
 [ext_resource type="Texture2D" uid="uid://3a8w380ww8uw" path="res://Scenes/characters/player.png" id="2_iot6e"]
@@ -422,6 +422,12 @@ radius = 8.24621
 [sub_resource type="CircleShape2D" id="CircleShape2D_lil1i"]
 radius = 28.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_auo3f"]
+bg_color = Color(0.799934, 0, 0.073704, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fie1g"]
+bg_color = Color(0, 0.531433, 0.199578, 1)
+
 [node name="player" type="CharacterBody2D"]
 position = Vector2(541, 322)
 collision_layer = 3
@@ -445,10 +451,9 @@ position = Vector2(0, -12)
 shape = SubResource("CircleShape2D_lil1i")
 
 [node name="attack_cooldown" type="Timer" parent="."]
-wait_time = 0.755
 
 [node name="deal_attack_timer" type="Timer" parent="."]
-wait_time = 0.439
+wait_time = 0.5
 
 [node name="Camera2D" type="Camera2D" parent="."]
 ignore_rotation = false
@@ -465,6 +470,17 @@ stream = ExtResource("4_01brt")
 
 [node name="gamemusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_5loin")
+
+[node name="healthbar" type="ProgressBar" parent="."]
+offset_left = -36.0
+offset_top = -40.0
+offset_right = 38.0
+offset_bottom = -33.0
+theme_override_styles/background = SubResource("StyleBoxFlat_auo3f")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fie1g")
+max_value = 160.0
+value = 80.0
+show_percentage = false
 
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]

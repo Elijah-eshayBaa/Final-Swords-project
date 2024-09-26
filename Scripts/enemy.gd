@@ -8,6 +8,17 @@ var health = 60
 var can_take_damage = true
 var player_inattack_zone = false
 
+@onready var health_bar = $healthbar
+
+func _ready():
+	health_bar.value = health
+	
+func _process(delta):
+	health_bar.value = health
+
+
+
+
 func _physics_process(delta):
 	
 	deal_with_damage()
@@ -62,6 +73,7 @@ func deal_with_damage():
 			can_take_damage = false
 			print("slime health = ", health)
 			if health <=0:
+				health_bar.value = health
 				print("player has eliminated a slime")
 				self.queue_free()
 

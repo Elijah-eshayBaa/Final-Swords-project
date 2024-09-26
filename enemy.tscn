@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://ndg5esktgibo"]
+[gd_scene load_steps=31 format=3 uid="uid://ndg5esktgibo"]
 
 [ext_resource type="Texture2D" uid="uid://8gnlse0exi3c" path="res://Scenes/characters/SlimeAssets/SlimeAssets/Assets/DeathSpritesheet.png" id="1_huw4p"]
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_jx276"]
@@ -166,6 +166,12 @@ radius = 5.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_plffx"]
 radius = 11.1803
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_df2uw"]
+bg_color = Color(0.799934, 0, 0.073704, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tcc43"]
+bg_color = Color(0, 0.531433, 0.199578, 1)
+
 [node name="enemy" type="CharacterBody2D"]
 script = ExtResource("1_jx276")
 
@@ -196,6 +202,17 @@ shape = SubResource("CircleShape2D_plffx")
 [node name="slimesound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_g2mhv")
 autoplay = true
+
+[node name="healthbar" type="ProgressBar" parent="."]
+offset_left = -9.0
+offset_top = -9.0
+offset_right = 10.0
+offset_bottom = -5.0
+theme_override_styles/background = SubResource("StyleBoxFlat_df2uw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_tcc43")
+max_value = 60.0
+value = 28.29
+show_percentage = false
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
